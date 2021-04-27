@@ -14,10 +14,16 @@ class FlairsGenerator extends GeneratorForAnnotation<Resource> {
       Element element, ConstantReader annotation, BuildStep buildStep) {
     final path = annotation.peek('path')!.stringValue;
     final yaml = loadYaml(File(path).readAsStringSync());
-    final outcome = YamlConverter().convert(yaml);
+    final hasThemes = yaml['themes'] != null;
+    final hasLangs = yaml['langs'] != null;
+    final outcome = YamlConverter(
+      constThemes: !hasThemes,
+      constLangs: !hasLangs,
+    ).convert(yaml);
     final sb = StringBuffer();
+    sb.writeln('import \'package:flutter/widgets.dart\';');
     sb.writeln('class Flairs {');
-    sb.writeln('Flairs._internal()');
+    sb.writeln('Flairs._internal();');
     sb.writeln(outcome);
     sb.writeln('}');
     return sb.toString();
