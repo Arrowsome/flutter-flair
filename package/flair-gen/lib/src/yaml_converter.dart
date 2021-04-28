@@ -22,7 +22,7 @@ class YamlConverter extends Converter<YamlMap> {
     } else {
       var i = 0;
       input.keys.forEach((e) {
-        sb.writeln('static Color get $e => FlairRepo.colors[$i];');
+        sb.writeln('static Color get $e => FlairRuntime.colors[$i];');
         ++i;
       });
     }
@@ -30,19 +30,17 @@ class YamlConverter extends Converter<YamlMap> {
 
   void _insets(YamlMap input) {
     input.forEach((key, value) {
-      if (value is int) {
-        sb.writeln('static get $key => const EdgeInsets.all($value);');
-      } else if (value is String) {
-        final tokens = value.split('-');
-        if (tokens.length == 2) {
-          sb.writeln(
-            'static EdgeInsets get $key => const EdgeInsets.symmetric(horizontal: ${tokens[0]}, vertical: ${tokens[1]},);',
-          );
-        } else if (tokens.length == 4) {
-          sb.writeln(
-            'static EdgeInsets get $key => const EdgeInsets.only(left: ${tokens[0]}, top: ${tokens[1]}, right: ${tokens[2]}, bottom: ${tokens[3]},);',
-          );
-        }
+      final tokens = value.toString().split('-');
+      if (tokens.length == 1) {
+        sb.writeln('static get $key => const EdgeInsets.all(${tokens[0]});');
+      } else if (tokens.length == 2) {
+        sb.writeln(
+          'static EdgeInsets get $key => const EdgeInsets.symmetric(horizontal: ${tokens[0]}, vertical: ${tokens[1]},);',
+        );
+      } else if (tokens.length == 4) {
+        sb.writeln(
+          'static EdgeInsets get $key => const EdgeInsets.only(left: ${tokens[0]}, top: ${tokens[1]}, right: ${tokens[2]}, bottom: ${tokens[3]},);',
+        );
       }
     });
   }
@@ -55,7 +53,7 @@ class YamlConverter extends Converter<YamlMap> {
     } else {
       var i = 0;
       input.keys.forEach((e) {
-        sb.writeln('static String get $e => FlairRepo.color[$i];');
+        sb.writeln('static String get $e => FlairRuntime.strings[$i];');
         ++i;
       });
     }

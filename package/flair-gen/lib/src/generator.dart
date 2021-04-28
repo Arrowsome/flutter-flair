@@ -22,6 +22,8 @@ class FlairsGenerator extends GeneratorForAnnotation<Resource> {
     ).convert(yaml);
     final sb = StringBuffer();
     sb.writeln('import \'package:flutter/widgets.dart\';');
+    if (hasThemes || hasLangs)
+      sb.writeln('import \'package:flair_runtime/flair_runtime.dart\';');
     sb.writeln('class Flairs {');
     sb.writeln('Flairs._internal();');
     sb.writeln(outcome);
