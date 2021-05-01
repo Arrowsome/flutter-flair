@@ -1,3 +1,5 @@
 abstract class Converter<T> {
-  String convert(T input);
+  String colors(T input);
+  String insets(T input);
+  String strings(T input);
 }

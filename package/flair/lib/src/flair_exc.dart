@@ -1,8 +1,8 @@
-class FlairRuntimeExc {
+class FlairExc {
   String message;
   String? todo;
 
-  FlairRuntimeExc({required this.message, this.todo});
+  FlairExc({required this.message, this.todo});
 
   @override
   String toString() {

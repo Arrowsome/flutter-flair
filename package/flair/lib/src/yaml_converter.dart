@@ -1,11 +1,11 @@
 import 'dart:convert';
 
+import 'package:flutter/widgets.dart';
 import 'package:yaml/yaml.dart';
-import 'flair_runtime.dart';
-import 'utils.dart';
 
 import 'converter.dart';
-import 'package:flutter/widgets.dart';
+import 'flair.dart';
+import 'utils.dart';
 
 class YamlConverter extends Converter<YamlMap> {
   final int? themeIndex;
@@ -30,13 +30,13 @@ class YamlConverter extends Converter<YamlMap> {
       if (tokens.length > 1) {
         alpha = Utils.opacToHex(int.parse(tokens[1]));
       }
-      FlairRuntime.colors.add(Color(int.parse('0x$alpha$hue')));
+      Flair.colors.add(Color(int.parse('0x$alpha$hue')));
     });
   }
 
   void _strings(YamlMap input) {
     input.values.forEach((e) {
-      FlairRuntime.strings.add(e[langIndex]);
+      Flair.strings.add(e[langIndex]);
     });
   }
 }

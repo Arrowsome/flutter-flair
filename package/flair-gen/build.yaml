@@ -8,6 +8,6 @@ builders:
   flairs_builder:
     import: 'package:flair_gen/src/builder.dart'
     builder_factories: ['resourceBuilder']
-    build_extensions: { '.dart': ['.flairs.dart'] }
+    build_extensions: { '.dart': ['.flair.dart'] }
     auto_apply: root_package
     build_to: source

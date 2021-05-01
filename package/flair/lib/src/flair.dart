@@ -2,9 +2,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:yaml/yaml.dart';
 import 'yaml_converter.dart';
-import 'flair_runtime_exc.dart';
+import 'flair_exc.dart';
 
-class FlairRuntime {
+class Flair {
   static final colors = <Color>[];
   static final strings = <String>[];
 
@@ -12,13 +12,19 @@ class FlairRuntime {
   static String? _currentTheme;
   static String? _currentLang;
 
-  FlairRuntime._internal();
+  static String? get theme => _currentTheme;
+  static String? get lang => _currentLang;
+
+  Flair._internal();
 
   static void init({required String path}) => _path = path;
 
-  static Future<void> update({String? theme, String? lang}) async {
+  static Future<bool> update({
+    String? theme,
+    String? lang,
+  }) async {
     if (_path == null) {
-      throw FlairRuntimeExc(
+      throw FlairExc(
         message: 'path-not-found',
         todo: 'Invoke init method with provided path first.',
       );
@@ -26,15 +32,18 @@ class FlairRuntime {
     final yaml = loadYaml(await rootBundle.loadString(_path!));
     int? themeIndex;
     int? langIndex;
-    if (theme != null && _currentTheme != theme) {
-      FlairRuntime.colors.clear();
+    if (theme != null && (_currentTheme != theme)) {
+      _currentTheme = theme;
+      Flair.colors.clear();
       themeIndex = (yaml['themes'] as YamlList?)?.indexOf(theme);
     }
-    if (lang != null && _currentLang != lang) {
-      FlairRuntime.strings.clear();
+    if (lang != null && (_currentLang != lang)) {
+      _currentLang = lang;
+      Flair.strings.clear();
       langIndex = (yaml['langs'] as YamlList?)?.indexOf(lang);
     }
 
     YamlConverter(themeIndex: themeIndex, langIndex: langIndex).convert(yaml);
+    return true;
   }
 }

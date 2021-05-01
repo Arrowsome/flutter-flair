@@ -4,5 +4,5 @@ import 'generator.dart';
 
 Builder resourceBuilder(BuilderOptions options) => LibraryBuilder(
       FlairsGenerator(),
-      generatedExtension: '.flairs.dart',
+      generatedExtension: '.flair.dart',
     );

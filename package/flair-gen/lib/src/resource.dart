@@ -1,4 +1,5 @@
 class Resource {
-  final String path;
-  const Resource({required this.path});
+  const Resource();
 }
+
+const resource = Resource();
