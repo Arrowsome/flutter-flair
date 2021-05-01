@@ -10,9 +10,9 @@
 
 Flair uses a single YAML file to generate and load resources in your Flutter project. These resources include:
 
-- Strings
-- EdgeInsets
-- Colors
+- **Strings**
+- **EdgeInsets**
+- **Colors**
 
 Also resource variants are supported, meaning you can specify different languages and color palettes. 
 
@@ -26,6 +26,7 @@ Also resource variants are supported, meaning you can specify different language
 
 ```yaml
 dependencies:
+  # Only for multi lang/theme support
   flair: ^0.0.1
 
 dev_dependencies:
@@ -35,11 +36,14 @@ dev_dependencies:
 
 2. Create a new YAML file preferably inside `asset` directory.
 
+**Note**: Check *Syntax* section for instruction on YAML structure
+
 ```
 asset
 |--resources.flair.yaml
 lib
-|--app
+|--main.dart
+|--...
 pubspec.yaml
 ```
 
@@ -73,14 +77,14 @@ const _resPath = 'asset/resources.flair.yaml';
 
 **Note**: If your support multi lang/them:
 
-```
+```dart
 @resource
 const _resPath = 'asset/resources.flair.yaml';
 
-void initFlair() {
+Future<void> initFlair() async {
     Flair.init(resPath);
     // You may use user preferences or device local 
-    Flair.update(theme: 'light', lang: 'fr');
+    await Flair.update(theme: 'light', lang: 'fr');
 }
 ```
 
@@ -101,7 +105,7 @@ Flair.theme;
 Flair.lang;
 ```
 
-## YAML structure
+## Syntax
 
 No theme/lang
 
