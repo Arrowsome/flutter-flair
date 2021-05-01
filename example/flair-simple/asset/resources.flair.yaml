@@ -1,0 +1,30 @@
+langs: 
+  - en
+  - fr
+themes: 
+  - dracula
+  - horizon
+# ---
+colors:
+  appBar: 
+    - '#6272a4'
+    - '#E84A72'
+  textColor: 
+    - '#f8f8f2'
+    - '#1A1C23'
+  background: 
+    - '#282a36'
+    - '#F9CEC3'
+# ---
+insets:
+  margin8: 8
+  padding8And12: 8-12
+  marginOrPadding: 8-12-16-0
+# ---
+strings:
+  appName:
+    - Sample App
+    - Exemple d'application
+  welcomeMsg:
+    - Welcome to Sample App!
+    - Bienvenue dans l'application Sample!

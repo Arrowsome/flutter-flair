@@ -1,0 +1,29 @@
+{
+  "title": "JSON Schema for Hadolint",
+  "description": "Dockerfile linter, validate inline bash, written in Haskell",
+  "type": "object",
+  "properties": {
+    "colors": {
+      "type": ["array", "string"],
+      "description": "A list of rules to be ignored",
+      "items": {
+        "type": "string",
+        "title": "Rule"
+      }
+    },
+    "strings": {
+      "type": "array",
+      "description": "A list of trusted registries. Ex: docker.io",
+      "items": {
+        "type": "string"
+      }
+    },
+    "fuck": {
+      "type": "array",
+      "description": "Fucks you in the ass",
+      "items": {
+      "type":"integer"
+      }
+    }
+  }
+}

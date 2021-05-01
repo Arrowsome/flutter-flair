@@ -190,13 +190,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
+  flair:
+    dependency: "direct main"
+    description:
+      path: "../../package/flair"
+      relative: true
+    source: path
+    version: "0.0.1"
   flair_gen:
     dependency: "direct dev"
     description:
       path: "../../package/flair-gen"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "0.1.0"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -270,6 +277,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.12.10"
+  material_design_icons_flutter:
+    dependency: "direct main"
+    description:
+      name: material_design_icons_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.0.5955-rc.1"
   meta:
     dependency: transitive
     description:
