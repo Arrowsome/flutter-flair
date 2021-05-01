@@ -1,6 +1,10 @@
-# Flair
-
-Slick way to manage app resources in your flutter project
+<h1 align="center">
+  <img src="ladybug.png" width="140">
+  <br>
+  <br>
+  F L A I R
+  <h4 align="center">Slick way to manage app resources in your flutter project</h4>
+</h1>
 
 ## Overview
 
