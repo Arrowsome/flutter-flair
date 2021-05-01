@@ -2,7 +2,7 @@
   <img src="ladybug.png" width="140">
   <br>
   <br>
-  F L A I R
+  <p>F L A I R</p>
   <h4 align="center">Slick way to manage app resources in your flutter project</h4>
 </h1>
 
@@ -96,6 +96,9 @@ void main() async {
 // Every time you want to reload new theme or lang
 // If you need to update only one of these don't pass any value the other
 Flair.update(lang: 'my-lang', theme: 'theme');
+// Retrieving current theme/lang
+Flair.theme;
+Flair.lang;
 ```
 
 ## YAML structure
@@ -154,3 +157,11 @@ strings:
 - Adding Divider and SizedBox as resources (soon)
 - Adding vscode extension to streamline process (soon)
 - Bypassing *Hot Reload* on multi lang/theme support
+
+## Sample
+
+An example for multi lang/theme is available in example directory
+
+<table>
+<tr><img src="app_image.gif"></tr>
+</table>
